@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 27, 2017 at 03:29 PM
+-- Generation Time: Jul 28, 2017 at 11:31 PM
 -- Server version: 5.7.19-0ubuntu0.16.04.1
 -- PHP Version: 7.0.18-0ubuntu0.16.04.1
 
@@ -40,6 +40,36 @@ INSERT INTO `categories` (`idCategory`, `alias`, `tittle`) VALUES
 (1, 'it-developing', 'It разработа'),
 (3, 'web-developing', 'Web разработка'),
 (4, 'game-dveloping', 'разработка игр');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `habrNews`
+--
+
+CREATE TABLE `habrNews` (
+  `id` int(20) NOT NULL,
+  `tittle` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `habrNews`
+--
+
+INSERT INTO `habrNews` (`id`, `tittle`, `content`, `link`, `image`) VALUES
+(177, 'Продвинутая тактика игры в «Сапёр»', '\n      Продвинутая тактика игры в «Сапёр»\n      \n\nперевод\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/post/334216/', 'https://habrastorage.org/web/ec5/9a7/548/ec59a7548eef435a8eeb090ee8012fe4.png'),
+(178, 'Тут вам не DevOps: судьба сисадмина в малом бизнесе', '\n      Тут вам не DevOps: судьба сисадмина в малом бизнесе\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/regionsoft/blog/334298/', 'https://habrastorage.org/web/c8c/04a/175/c8c04a175f814d6eafa1d1c8a31198ea.jpg'),
+(179, 'Cравнение российских операторов предоставляющих облачные услуги', '\n      Cравнение российских операторов предоставляющих облачные услуги\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/post/334044/', 'https://habrastorage.org/web/934/927/66b/93492766b42a480b9790f458cd2e7492.jpg'),
+(180, 'С днем системного администратора', '\n      С днем системного администратора\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/post/334318/', 'https://habrastorage.org/web/312/434/5b7/3124345b7bfd4884a1feb69c150c187d.jpeg'),
+(181, 'Идеальная домашняя сеть или «сам себе злобный перфекционист»', '\n      Идеальная домашняя сеть или «сам себе злобный перфекционист»\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/qrator/blog/334338/', 'https://habrastorage.org/web/a3f/601/d1f/a3f601d1fc86493ba54621f18e3dccfb.png'),
+(182, 'Ужасный рекрутер, ужасный кандидат', '\n      Ужасный рекрутер, ужасный кандидат\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/pm/blog/334268/', 'https://habrastorage.org/web/e7e/2de/00a/e7e2de00af0947a48deea245fd616d49.png'),
+(183, 'Будни сисадминские: 17 типичных ситуаций', '\n      Будни сисадминские: 17 типичных ситуаций\n      \n\nперевод\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/alloy_software/blog/334340/', 'https://habrastorage.org/getpro/habr/post_images/70a/72d/1f1/70a72d1f15aa8d01061174c4c4d46484.png'),
+(184, 'Читаем, слушаем, используем. Гайд по источникам для саморазвития Android-разработчика', '\n      Читаем, слушаем, используем. Гайд по источникам для саморазвития Android-разработчика\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/avito/blog/334264/', 'https://habrastorage.org/web/eb2/608/232/eb2608232ef24b8581549656ba37fd11.jpg'),
+(185, 'Как крупная курьерская компания персональные данные своих клиентов раздавала', '\n      Как крупная курьерская компания персональные данные своих клиентов раздавала\n      \n\n\n\nиз песочницы\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/post/334330/', 'https://s3.postimg.org/bwc0gsm4z/0e35049f32d7b56a8ecf01bec5d219a62721edab.jpg'),
+(186, 'Как «Актив» организовал «электронную переговорку»', '\n      Как «Актив» организовал «электронную переговорку»\n      \n\n\n\n\n\n\n\n\n\n\n\n    ', 'https://habrahabr.ru/company/aktiv-company/blog/334334/', 'https://habrastorage.org/web/e6d/9ba/d7a/e6d9bad7a57e4fdaa51fba895401925d.jpg');
 
 -- --------------------------------------------------------
 
@@ -122,6 +152,13 @@ ALTER TABLE `categories`
   ADD PRIMARY KEY (`idCategory`);
 
 --
+-- Indexes for table `habrNews`
+--
+ALTER TABLE `habrNews`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `link` (`link`);
+
+--
 -- Indexes for table `migration`
 --
 ALTER TABLE `migration`
@@ -151,6 +188,11 @@ ALTER TABLE `user`
 --
 ALTER TABLE `categories`
   MODIFY `idCategory` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `habrNews`
+--
+ALTER TABLE `habrNews`
+  MODIFY `id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=187;
 --
 -- AUTO_INCREMENT for table `news`
 --
